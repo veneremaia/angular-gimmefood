@@ -1,0 +1,29 @@
+<h1>Lista de alimentos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Calorias x100g</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="ingredient.image" [alt]="ingredient.name"></td>
+            <td>{{ingredient.name}}</td>
+            <td>Tubérculos</td>
+            <td>80 cal</td>
+        </tr>
+        <tr>
+            <td>Pollo</td>
+            <td>Carnes</td>
+            <td>239 cal</td>
+        </tr>
+        <tr>
+            <td>Huevo</td>
+            <td>Carnes y derivados</td>
+            <td>155 cal</td>
+        </tr>
+    </tbody>
+</table>
