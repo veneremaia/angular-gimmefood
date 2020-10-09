@@ -8,12 +8,36 @@ import { Ingredient } from './Ingredient';
 })
 export class IngredientListComponent implements OnInit {
 
-  ingredient: Ingredient = {
+  ingredients: Ingredient[] = [
+    {
     "name": "Papa",
     "category": "Tubérculos",
     "calorie": 80,
-    "image": "assets/img/potato.jpeg"
-  }
+    "sodium": 6,
+    "image": "assets/img/potato.jpg"
+    },
+    {
+    "name": "Pollo",
+    "category": "Carnes y derivados",
+    "calorie": 239,
+    "sodium": 82,
+    "image": "assets/img/chicken.jpg"
+  },
+  {
+  "name": "Huevo",
+  "category": "Carnes y derivados",
+  "calorie": 155,
+  "sodium": 124,
+  "image": "assets/img/egg.jpg"
+},
+{
+"name": "Queso",
+"category": "Leche y derivados",
+"calorie": 310,
+"sodium": 621,
+"image": "assets/img/cheese.jpg"
+}
+    ];
   constructor() { }
 
   ngOnInit(): void {
