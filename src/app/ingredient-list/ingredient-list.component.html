@@ -10,16 +10,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ingredient of ingredients">
+        <tr *ngFor="let ingredient of ingredients"  [ngClass]="{'table-danger': ingredient.sodium>150}">
             <td><img [src]="ingredient.image" [alt]="ingredient.name"></td>
-            <td>{{ingredient.name}}</td>
+            <td>{{ingredient.name}} <img [src]="img_vegan" [alt]="vegan" *ngIf="ingredient.vegan"></td>
             <td>{{ingredient.category}}</td>
-            <td>{{ingredient.calorie}} cal</td>
+            <td>{{ingredient.calorie | number}} cal</td>
             <td>
                 <span *ngIf="ingredient.sodium<40" class="badge badge-success">Bajo en sodio</span>
                 <span *ngIf="ingredient.sodium>40 && ingredient.sodium<150" class="badge badge-warning">Sodio moderado</span>
                 <span *ngIf="ingredient.sodium>150" class="badge badge-danger">Alto en sodio</span>
             </td>
+            
+
            
 
 

@@ -3,5 +3,6 @@ export interface Ingredient{
     category: string;
     calorie: number;
     sodium: number;
+    vegan: boolean;
     image: string;
 }

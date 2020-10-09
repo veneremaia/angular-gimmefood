@@ -8,34 +8,40 @@ import { Ingredient } from './Ingredient';
 })
 export class IngredientListComponent implements OnInit {
 
+  img_vegan : string = "assets/img/vegan.png";
+  
   ingredients: Ingredient[] = [
     {
     "name": "Papa",
     "category": "Tubérculos",
     "calorie": 80,
     "sodium": 6,
-    "image": "assets/img/potato.jpg"
+    "vegan": true,
+    "image": "assets/img/patata.png"
     },
     {
     "name": "Pollo",
     "category": "Carnes y derivados",
     "calorie": 239,
     "sodium": 82,
-    "image": "assets/img/chicken.jpg"
+    "vegan": false,
+    "image": "assets/img/chicken.png"
   },
   {
   "name": "Huevo",
   "category": "Carnes y derivados",
   "calorie": 155,
   "sodium": 124,
-  "image": "assets/img/egg.jpg"
+  "vegan": false,
+  "image": "assets/img/egg.png"
 },
 {
 "name": "Queso",
 "category": "Leche y derivados",
 "calorie": 310,
 "sodium": 621,
-"image": "assets/img/cheese.jpg"
+"vegan": false,
+"image": "assets/img/cheese.png"
 }
     ];
   constructor() { }
