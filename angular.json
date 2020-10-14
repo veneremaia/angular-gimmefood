@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gimmefood"
+    }
+  },
+  "defaultProject": "gimmefood",
+  "cli": {
+    "analytics": "99ef42ef-9026-4b8d-8fda-7abc04d00e2f"
+  }
 }
