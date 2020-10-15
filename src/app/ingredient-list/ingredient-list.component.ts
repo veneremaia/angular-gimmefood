@@ -22,7 +22,9 @@ export class IngredientListComponent implements OnInit {
     "protein": 7,
     "carbohydrates": 20.45,
     "vegan": true,
-    "image": "assets/img/potato.png"
+    "image": "assets/img/potato.png",
+    "stock": 0,
+    "quantity": 0,
     },
     {
     "name": "Pollo",
@@ -32,7 +34,9 @@ export class IngredientListComponent implements OnInit {
     "protein": 27,
     "carbohydrates": 0,
     "vegan": false,
-    "image": "assets/img/chicken.png"
+    "image": "assets/img/chicken.png",
+    "stock": 5,
+    "quantity": 0,
   },
   {
   "name": "Huevo",
@@ -42,7 +46,9 @@ export class IngredientListComponent implements OnInit {
   "protein": 11,
   "carbohydrates": 0.6,
   "vegan": false,
-  "image": "assets/img/egg.png"
+  "image": "assets/img/egg.png",
+  "stock": 5,
+  "quantity": 0,
 },
 {
 "name": "Queso",
@@ -52,7 +58,9 @@ export class IngredientListComponent implements OnInit {
 "protein": 20,
 "carbohydrates": 1.67,
 "vegan": false,
-"image": "assets/img/cheese.png"
+"image": "assets/img/cheese.png",
+"stock": 5,
+"quantity": 0,
 },
 {
   "name": "Maíz",
@@ -62,7 +70,9 @@ export class IngredientListComponent implements OnInit {
   "protein": 9.42,
   "carbohydrates": 18.7,
   "vegan": true,
-  "image": "assets/img/corn.png"
+  "image": "assets/img/corn.png",
+  "stock": 5,
+  "quantity": 0,
   },
   {
     "name": "Zanahoria",
@@ -72,7 +82,9 @@ export class IngredientListComponent implements OnInit {
     "protein": 0.9,
     "carbohydrates": 9.58,
     "vegan": true,
-    "image": "assets/img/carrot.png"
+    "image": "assets/img/carrot.png",
+    "stock": 5,
+    "quantity": 0,
     }
     ];
   constructor() { }
@@ -80,4 +92,19 @@ export class IngredientListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity(ingredient: Ingredient) : void {
+    if(ingredient.quantity<ingredient.stock)
+    ingredient.quantity++;
+  }
+
+  downQuantity(ingredient: Ingredient) : void {
+    if(ingredient.quantity>0)
+    ingredient.quantity--;
+  }
+
+  changeQuantity(event,ingredient : Ingredient) : void{
+    if((event.key>=0 ||event.key<=9) && event.code!="Space")
+    console.log("es numero");
+    console.log(event);
+  }
 }

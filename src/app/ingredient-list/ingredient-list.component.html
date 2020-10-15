@@ -7,22 +7,37 @@
             <th>Nombre</th>
             <th>Categoria</th>
             <th>Calorias x100g</th>
-            <th>Carbohidratos</th>
+            <!--<th>Carbohidratos</th>-->
             <th>Nivel sodio</th>
+            <th>Cantidad</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let ingredient of ingredients"  [ngClass]="{'table-danger': ingredient.sodium>150}" >
             <td><img [src]="ingredient.image" [alt]="ingredient.name"></td>
             <td class="align-middle">{{ingredient.name}} 
-                <img data-toggle="tooltip" data-placement="bottom" title="Vegano" class="align-middle" [src]="img_vegan" [alt]="vegan" *ngIf="ingredient.vegan"> <img data-toggle="tooltip" data-placement="bottom" title="Proteico" class="align-middle" [src]="img_protein" alt="protein" *ngIf="ingredient.protein>15"></td>
+                <img data-toggle="tooltip" data-placement="bottom" title="Vegano" class="align-middle" [src]="img_vegan" [alt]="vegan" *ngIf="ingredient.vegan"> 
+                <img data-toggle="tooltip" data-placement="bottom" title="Proteico" class="align-middle" [src]="img_protein" alt="protein" *ngIf="ingredient.protein>15">
+            </td>
             <td class="align-middle font-italic">{{ingredient.category}}</td>
             <td class="align-middle font-weight-bold">{{ingredient.calorie | number}} cal</td>
-            <td class="align-middle font-weight-bold">{{ingredient.carbohydrates | number}} g</td>
+            <!--<td class="align-middle font-weight-bold">{{ingredient.carbohydrates | number}} g</td>-->
             <td class="align-middle">
                 <span *ngIf="ingredient.sodium<40" class="badge badge-success">Bajo en sodio</span>
                 <span *ngIf="ingredient.sodium>40 && ingredient.sodium<150" class="badge badge-warning">Sodio moderado</span>
                 <span *ngIf="ingredient.sodium>150" class="badge badge-danger">Alto en sodio</span>
+            </td>
+            <td>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon1" (click)="downQuantity(ingredient)">-</button>
+                    </div>
+                    <input type="text" class="form-control" [(ngModel)]="ingredient.quantity" (keyup)="changeQuantity($event, ingredient)">
+
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="upQuantity(ingredient)">+</button>
+                  </div>
+
+             <span class="badge badge-secondary col-12" *ngIf="ingredient.stock==0">Sin stock!</span>
             </td>
             
 

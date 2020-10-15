@@ -7,4 +7,6 @@ export interface Ingredient{
     carbohydrates: number;
     vegan: boolean;
     image: string;
+    stock: number;
+    quantity: number;
 }
