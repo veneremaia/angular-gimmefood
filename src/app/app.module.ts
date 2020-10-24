@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { GimmefoodAboutComponent } from './gimmefood-about/gimmefood-about.component';
 import { GimmefoodIngredientsComponent } from './gimmefood-ingredients/gimmefood-ingredients.component';
 import { IngredientsCartComponent } from './ingredients-cart/ingredients-cart.component';
+import { InputNumberComponent } from './input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { IngredientsCartComponent } from './ingredients-cart/ingredients-cart.co
     IngredientListComponent,
     GimmefoodAboutComponent,
     GimmefoodIngredientsComponent,
-    IngredientsCartComponent
+    IngredientsCartComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,

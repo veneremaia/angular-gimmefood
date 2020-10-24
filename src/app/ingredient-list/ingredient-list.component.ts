@@ -92,19 +92,7 @@ export class IngredientListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upQuantity(ingredient: Ingredient) : void {
-    if(ingredient.quantity<ingredient.stock)
-    ingredient.quantity++;
-  }
-
-  downQuantity(ingredient: Ingredient) : void {
-    if(ingredient.quantity>0)
-    ingredient.quantity--;
-  }
-
-  changeQuantity(event,ingredient : Ingredient) : void{
-    if((event.key>=0 ||event.key<=9) && event.code!="Space")
-    console.log("es numero");
-    console.log(event);
-  }
+ maxReached(m: String) : void{
+   console.log(m);
+ }
 }
