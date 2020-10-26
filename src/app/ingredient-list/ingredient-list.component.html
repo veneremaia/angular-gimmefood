@@ -6,10 +6,11 @@
             <th>Imagen</th>
             <th>Nombre</th>
             <th>Categoria</th>
-            <th>Calorias x100g</th>
+            <th>Caloria x100g</th>
             <!--<th>Carbohidratos</th>-->
             <th>Nivel sodio</th>
             <th>Cantidad</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -27,9 +28,12 @@
                 <span *ngIf="ingredient.sodium>40 && ingredient.sodium<150" class="badge badge-warning">Sodio moderado</span>
                 <span *ngIf="ingredient.sodium>150" class="badge badge-danger">Alto en sodio</span>
             </td>
-            <td>
-                <app-input-number [(quantity)]="ingredient.quantity" [max]="ingredient.stock" (maxReached) = "maxReached($event)"></app-input-number>
-                <p>{{ingredient.quantity}}</p>
+            <td class="align-middle">
+                <app-input-number *ngIf="ingredient.stock>0" [(quantity)]="ingredient.quantity" [max]="ingredient.stock" (maxReached) = "maxReached($event)"></app-input-number>
+                <span class="badge badge-secondary col-12" *ngIf="ingredient.stock==0">Sin stock!</span>
+            </td>
+            <td class="align-middle">
+                <button type="button" class="btn btn-outline-success" (click)="addToCart(ingredient)">Comprar</button>
             </td>
             
 

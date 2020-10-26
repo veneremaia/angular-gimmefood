@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IngredientCartService } from '../ingredient-cart.service';
 import { Ingredient } from './Ingredient';
 // La tabla de ingredientes sera el nombre, grupo (son 5), categoria de alimento, calorias
 @Component({
@@ -14,85 +15,95 @@ export class IngredientListComponent implements OnInit {
 
   
   ingredients: Ingredient[] = [
+      {
+      "name": "Papa",
+      "category": "Tubérculos",
+      "calorie": 80,
+      "sodium": 6,
+      "protein": 7,
+      "carbohydrates": 20.45,
+      "vegan": true,
+      "image": "assets/img/potato.png",
+      "stock": 0,
+      "quantity": 0,
+      },
+      {
+      "name": "Pollo",
+      "category": "Carnes y derivados",
+      "calorie": 239,
+      "sodium": 82,
+      "protein": 27,
+      "carbohydrates": 0,
+      "vegan": false,
+      "image": "assets/img/chicken.png",
+      "stock": 5,
+      "quantity": 0,
+    },
     {
-    "name": "Papa",
-    "category": "Tubérculos",
-    "calorie": 80,
-    "sodium": 6,
-    "protein": 7,
-    "carbohydrates": 20.45,
+    "name": "Huevo",
+    "category": "Carnes y derivados",
+    "calorie": 155,
+    "sodium": 124,
+    "protein": 11,
+    "carbohydrates": 0.6,
+    "vegan": false,
+    "image": "assets/img/egg.png",
+    "stock": 5,
+    "quantity": 0,
+  },
+  {
+  "name": "Queso",
+  "category": "Leche y derivados",
+  "calorie": 310,
+  "sodium": 621,
+  "protein": 20,
+  "carbohydrates": 1.67,
+  "vegan": false,
+  "image": "assets/img/cheese.png",
+  "stock": 5,
+  "quantity": 0,
+  },
+  {
+    "name": "Maíz",
+    "category": "Cereal",
+    "calorie": 111,
+    "sodium": 35,
+    "protein": 9.42,
+    "carbohydrates": 18.7,
     "vegan": true,
-    "image": "assets/img/potato.png",
-    "stock": 0,
+    "image": "assets/img/corn.png",
+    "stock": 5,
     "quantity": 0,
     },
     {
-    "name": "Pollo",
-    "category": "Carnes y derivados",
-    "calorie": 239,
-    "sodium": 82,
-    "protein": 27,
-    "carbohydrates": 0,
-    "vegan": false,
-    "image": "assets/img/chicken.png",
-    "stock": 5,
-    "quantity": 0,
-  },
-  {
-  "name": "Huevo",
-  "category": "Carnes y derivados",
-  "calorie": 155,
-  "sodium": 124,
-  "protein": 11,
-  "carbohydrates": 0.6,
-  "vegan": false,
-  "image": "assets/img/egg.png",
-  "stock": 5,
-  "quantity": 0,
-},
-{
-"name": "Queso",
-"category": "Leche y derivados",
-"calorie": 310,
-"sodium": 621,
-"protein": 20,
-"carbohydrates": 1.67,
-"vegan": false,
-"image": "assets/img/cheese.png",
-"stock": 5,
-"quantity": 0,
-},
-{
-  "name": "Maíz",
-  "category": "Cereal",
-  "calorie": 111,
-  "sodium": 35,
-  "protein": 9.42,
-  "carbohydrates": 18.7,
-  "vegan": true,
-  "image": "assets/img/corn.png",
-  "stock": 5,
-  "quantity": 0,
-  },
-  {
-    "name": "Zanahoria",
-    "category": "Verduras y hortalizas",
-    "calorie": 41,
-    "sodium": 61,
-    "protein": 0.9,
-    "carbohydrates": 9.58,
-    "vegan": true,
-    "image": "assets/img/carrot.png",
-    "stock": 5,
-    "quantity": 0,
-    }
+      "name": "Zanahoria",
+      "category": "Verduras y hortalizas",
+      "calorie": 41,
+      "sodium": 61,
+      "protein": 0.9,
+      "carbohydrates": 9.58,
+      "vegan": true,
+      "image": "assets/img/carrot.png",
+      "stock": 5,
+      "quantity": 0,
+      }
     ];
-  constructor() { }
+
+  constructor(private cart : IngredientCartService) { 
+  }
 
   ngOnInit(): void {
   }
 
  maxReached(m: String) : void{
    console.log(m);
+ }
+
+ addToCart(ingredient : Ingredient) : void {
+   if(ingredient.quantity!=0){
+    this.cart.addToCart(ingredient);
+    ingredient.stock-=ingredient.quantity;
+    ingredient.quantity = 0;
+   }
  }
 }
