@@ -9,13 +9,20 @@ import { Ingredient } from '../ingredient-list/Ingredient';
   styleUrls: ['./ingredients-cart.component.scss']
 })
 export class IngredientsCartComponent implements OnInit {
-  cant_cal : number = 0;
+
   cartList$ : Observable<Ingredient[]>;
+  cantCalories : number = 0; 
   constructor(private cart: IngredientCartService) {
     this.cartList$ = this.cart.cartList.asObservable();
+    this.cart.cartList.forEach(element => {
+      this.cantCalories =0;
+      element.forEach(ingredient =>
+        this.cantCalories+=ingredient.calorie*ingredient.quantity)
+    });
    }
 
   ngOnInit(): void {
   }
+
 
 }
