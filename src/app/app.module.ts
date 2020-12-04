@@ -10,6 +10,8 @@ import { GimmefoodIngredientsComponent } from './gimmefood-ingredients/gimmefood
 import { IngredientsCartComponent } from './ingredients-cart/ingredients-cart.component';
 import { InputNumberComponent } from './input-number/input-number.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { InputNumberComponent } from './input-number/input-number.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
